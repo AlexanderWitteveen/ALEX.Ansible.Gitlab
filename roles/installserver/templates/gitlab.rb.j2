@@ -1,0 +1,6 @@
+external_url 'https://{{ args_gitlab_url }}'
+
+nginx['redirect_http_to_https'] = true
+nginx['ssl_certificate'] = "/etc/gitlab/ssl/gitlab.cer"
+nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/gitlab.key"
+

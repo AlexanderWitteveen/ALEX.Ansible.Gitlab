@@ -1,0 +1,11 @@
+u = User.find_by(username: "alex")
+if u == nil
+    puts "exists not"
+    u = User.new(username: 'alex', email: 'alex.witteveen@live.nl', name: 'Alexander Witteveen', password: 'vinblanc', password_confirmation: 'vinblanc')
+    u.skip_confirmation!
+    u.admin = true
+    u.save!
+    puts "user created"
+else
+    puts "exists"
+end

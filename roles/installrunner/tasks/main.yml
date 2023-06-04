@@ -1,0 +1,5 @@
+---
+
+- include_tasks: installrunner.yml
+
+- include_tasks: configurerunner.yml

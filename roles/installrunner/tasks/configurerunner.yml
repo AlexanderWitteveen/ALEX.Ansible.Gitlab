@@ -1,0 +1,22 @@
+---
+
+#- name: Copy toml file
+#  ansible.builtin.template:
+#    src: "config.toml.j2"
+#    dest: "/etc/gitlab-runner/config.toml"
+#    owner: root
+#    group: root
+#    mode: 0600
+#  notify: restart gitlab
+
+- name: configure runner
+  shell: |
+    gitlab-runner register \
+      --non-interactive \
+      --url "HTTPS://{{ args_gitlab_url }}" \
+      --registration-token "{{ args_gitlab_runnertoken }}" \
+      --description "ALEX Gitlab runner" \
+      --executor "shell"
+  args:
+    executable: /bin/bash
+  changed_when: "true"
