@@ -1,5 +1,7 @@
 ---
 
+- include_tasks: installhelm.yml
+
 - include_tasks: installrunner.yml
 
 - include_tasks: configurerunner.yml
