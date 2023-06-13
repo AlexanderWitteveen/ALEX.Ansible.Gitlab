@@ -14,4 +14,4 @@
     - alex.ms.installdotnet
     - alex.docker.install
     - alex.gitlab.installrunner
-    
+    - alex.k3s.getkubeconfig
