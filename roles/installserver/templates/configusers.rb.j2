@@ -1,7 +1,7 @@
-u = User.find_by(username: "alex")
+u = User.find_by(username: "{{ args_admin_username }}")
 if u == nil
     puts "exists not"
-    u = User.new(username: 'alex', email: 'alex.witteveen@live.nl', name: 'Alexander Witteveen', password: 'vinblanc', password_confirmation: 'vinblanc')
+    u = User.new(username: '{{ args_admin_username }}', email: '{{ args_admin_email }}', name: '{{ args_admin_fullname }}', password: '{{ args_admin_password }}', password_confirmation: '{{ args_admin_password }}')
     u.skip_confirmation!
     u.admin = true
     u.save!
@@ -9,3 +9,16 @@ if u == nil
 else
     puts "exists"
 end
+
+u = User.find_by(username: "ansible")
+if u == nil
+    puts "exists not"
+    u = User.new(username: '{{ args_ansible_username }}', email: '{{ args_ansible_email }}', name: '{{ args_admin_fullname }}', password: '{{ args_ansible_password }}', password_confirmation: '{{ args_ansible_password }}')
+    u.skip_confirmation!
+    u.admin = true
+    u.save!
+    puts "user created"
+else
+    puts "exists"
+end
+
